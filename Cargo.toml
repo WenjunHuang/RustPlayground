@@ -1,0 +1,38 @@
+[package]
+name = "gtk_rs_playground"
+version = "0.1.0"
+authors = ["WenjunHuang <huangwj@goldlokedu.cn>"]
+
+[dependencies]
+chrono = "0.4"
+glib = "^0"
+gdk = {version = "^0",optional = true}
+gdk-pixbuf = "^0"
+gtk = {version = "*",  features=["v3_22"]}
+gio = "^0"
+pango = "^0"
+gstreamer="^0"
+gstreamer-audio = "^0"
+gstreamer-video = "*"
+gstreamer-player = "*"
+cairo-rs = { version = "^0", features = ["png"] }
+send-cell = "0.1"
+byte-slice-cast = "0.1"
+futures = "*"
+tokio-core = "*"
+tokio-io="*"
+tokio-proto="*"
+tokio-service="*"
+bytes="*"
+hyper="*"
+rand="*"
+rust-crypto="*"
+serde="*"
+serde_json="*"
+serde_derive="*"
+
+#[features]
+#tutorial5 = ["gtk", "gdk"]
+#tutorial5-x11 = ["tutorial5"]
+#tutorial5-quartz = ["tutorial5"]
+#tutorial5-win32 = ["tutorial5"]

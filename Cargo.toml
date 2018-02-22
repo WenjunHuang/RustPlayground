@@ -19,6 +19,7 @@ cairo-rs = { version = "^0", features = ["png"] }
 send-cell = "0.1"
 byte-slice-cast = "0.1"
 futures = "*"
+tokio="*"
 tokio-core = "*"
 tokio-io="*"
 tokio-proto="*"

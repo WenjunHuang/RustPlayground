@@ -36,14 +36,34 @@
                 <property name="subtitle">Translate Text</property>
                 <property name="show_close_button">True</property>
                 <child>
-                    <object class="GtkComboBoxText" id="language">
+                    <object class="GtkComboBoxText" id="language_src">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="active">1</property>
                         <property name="active_id">English</property>
                         <items>
-                            <item>Chinese</item>
-                            <item id="1">English</item>
+                            <item>中文</item>
+                            <item id="1">英语</item>
+                            <item id="2">粤语</item>
+                            <item id="3">文言文</item>
+                            <item id="4">日语</item>
+                            <item id="5">韩语</item>
+                        </items>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkComboBoxText" id="language_dst">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="active">1</property>
+                        <property name="active_id">English</property>
+                        <items>
+                            <item>中文</item>
+                            <item id="1">英语</item>
+                            <item id="2">粤语</item>
+                            <item id="3">文言文</item>
+                            <item id="4">日语</item>
+                            <item id="5">韩语</item>
                         </items>
                     </object>
                 </child>

@@ -4,7 +4,6 @@ version = "0.1.0"
 authors = ["WenjunHuang <huangwj@goldlokedu.cn>"]
 
 [dependencies]
-chrono = "0.4"
 glib = "^0"
 gdk = {version = "^0",optional = true}
 gdk-pixbuf = "^0"
@@ -31,6 +30,7 @@ rust-crypto="*"
 serde="*"
 serde_json="*"
 serde_derive="*"
+chrono="*"
 
 #[features]
 #tutorial5 = ["gtk", "gdk"]

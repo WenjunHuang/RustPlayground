@@ -68,6 +68,7 @@ fn receive()->glib::Continue {
     glib::Continue(false)
 }
 
+
 // declare a new thread local storage key
 thread_local!( static GLOBAL:RefCell<Option<(gtk::TextBuffer,Receiver<String>) >> = RefCell::new(None) );
 

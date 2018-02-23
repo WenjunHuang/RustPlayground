@@ -6,18 +6,16 @@ extern crate rand;
 extern crate crypto;
 extern crate futures;
 extern crate tokio_core;
-extern crate tokio;
 extern crate serde;
 extern crate serde_json;
 extern crate glib;
+extern crate url;
 
 #[macro_use]
 extern crate gtk_rs_playground;
 
 use gio::prelude::*;
 use gtk::prelude::*;
-use gtk::*;
-use gio::*;
 use crypto::md5::Md5;
 use crypto::digest::Digest;
 use std::env::args;
@@ -26,11 +24,8 @@ use hyper::{Client, Chunk};
 use hyper::client::HttpConnector;
 use futures::future::*;
 use futures::prelude::*;
+use url::Url;
 use tokio_core::reactor::Core;
-use tokio::executor::current_thread;
-use hyper::header::Connection;
-use std::io;
-use glib::Continue;
 use std::sync::mpsc::{channel, Receiver};
 use std::cell::RefCell;
 
@@ -72,7 +67,7 @@ fn build_ui(app: &gtk::Application) {
               glib::idle_add(receive);
               ok(())
         });
-        core.run(fut);
+        core.run(fut).unwrap();
     }));
 
     window.set_application(app);
@@ -113,6 +108,7 @@ fn translate(input: &str, src:&str, dst: &str, client: &Client<HttpConnector>) -
         }).collect::<Vec<_>>().join("");
     }
 
+    let url = Url::parse_with_params(BAIDU_TRANS_URL,&[("from",&src])
     let complete_url = format!("{url}?q={q}&from={from}&to={to}&appid={appid}&salt={salt}&sign={sign}",
                                url = BAIDU_TRANS_URL,
                                from = src,
@@ -123,14 +119,14 @@ fn translate(input: &str, src:&str, dst: &str, client: &Client<HttpConnector>) -
                                sign = signed);
     println!("{}", complete_url);
 
-    let mut result = String::new();
     let complete_url = complete_url.parse().unwrap();
     let work = client.get(complete_url)
         .map(|res| {
             res.body().concat2().map(move |body: Chunk| {
-                let v: serde_json::Value = serde_json::from_slice(&body).unwrap();
+                println!("{:?}",body);
+                let v = serde_json::from_slice::<serde_json::Value>(&body);
                 match v {
-                    serde_json::Value::Object(m) => {
+                    Ok(serde_json::Value::Object(m)) => {
                         if let Some(error) = m.get("error_code") {
                             println!("Error");
                             format!("{}", error)

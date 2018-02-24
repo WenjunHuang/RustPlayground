@@ -22,7 +22,6 @@ mio="*"
 #tokio="*"
 tokio-core = "*"
 tokio-io="*"
-url="*"
 tokio-service="*"
 bytes="*"
 hyper="*"
@@ -32,6 +31,7 @@ serde="*"
 serde_json="*"
 serde_derive="*"
 chrono="*"
+percent-encoding = "1.0.1"
 
 #[features]
 #tutorial5 = ["gtk", "gdk"]

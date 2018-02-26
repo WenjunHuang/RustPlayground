@@ -4,12 +4,13 @@ version = "0.1.0"
 authors = ["WenjunHuang <huangwj@goldlokedu.cn>"]
 
 [dependencies]
-glib = "^0"
-gdk = {version = "^0",optional = true}
-gdk-pixbuf = "^0"
+libc="*"
+glib = "*"
+gdk = {version = "*",optional = true}
+gdk-pixbuf = "*"
 gtk = {version = "*",  features=["v3_22"]}
-gio = "^0"
-pango = "^0"
+gio = "*"
+pango = "*"
 gstreamer="*"
 gstreamer-audio = "*"
 gstreamer-video = "*"

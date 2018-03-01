@@ -6,6 +6,10 @@ authors = ["WenjunHuang <huangwj@goldlokedu.cn>"]
 [dependencies]
 libc="*"
 glib = "*"
+glib-sys="*"
+gobject-sys="*"
+gdk-sys="*"
+gtk-sys={version="*"}
 gdk = {version = "*",optional = true}
 gdk-pixbuf = "*"
 gtk = {version = "*",  features=["v3_22"]}

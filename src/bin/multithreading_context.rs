@@ -32,7 +32,7 @@ fn build_ui(application:&gtk::Application){
     scroll.set_policy(gtk::PolicyType::Automatic,gtk::PolicyType::Automatic);
     scroll.add(&text_view);
 
-    let (tx,rx) = channel();
+    let (tx,rx) = channel::<String>();
     // put TextBuffer and receiver in thread local storage
     GLOBAL.with(move |global|{
         *global.borrow_mut() = Some((text_view.get_buffer()

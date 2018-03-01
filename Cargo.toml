@@ -12,6 +12,8 @@ gdk-sys="*"
 gtk-sys={version="*"}
 gdk = {version = "*",optional = true}
 gdk-pixbuf = "*"
+glib-sys="*"
+gobject-sys="*"
 gtk = {version = "*",  features=["v3_22"]}
 gio = "*"
 pango = "*"

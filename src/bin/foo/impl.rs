@@ -40,7 +40,7 @@ static mut PRIV: FooClassPrivate = FooClassPrivate {
     parent_class: 0 as *const _,
     properties: 0 as *const _,
     signals: 0 as *const _,
-}
+};
 
 #[repr(u32)]
 struct Properties {
@@ -229,7 +229,46 @@ impl FooClass {
 
             let name_cstr = CString::new("name").unwrap();
             let nick_cstr = CString::new("Name").unwrap();
+            let blurb_cstr = CString::new("Name of the object").unwrap();
+
+            properties.push(ptr::null());
+            properties.push(gobject_ffi::g_param_spec_string(
+                name_cstr.as_ptr(),
+                nick_cstr.as_ptr(),
+                blurb_cstr.as_ptr(),
+                ptr::null_mut(),
+                gobject_ffi::G_PARAM_READWRITE | gobject_ffi::G_PARAM_CONSTRUCT_ONLY,
+            ));
+            gobject_ffi::g_object_class_install_properties(
+                gobject_klass,
+                properties.len() as u32,
+                properties.as_mut_ptr() as *mut *mut _,
+            );
+
+            PRIV.properties = Box::into_raw(Box::new(properties));
         }
+        {
+            let foo_klass = &mut *(klass as *mut FooClass);
+            foo_klass.increment = Some(Foo::increment_trampoline);
+            foo_klass.incremented = Some(Foo::incremented_trampoline);
+        }
+
+        let mut signals = Vec::new();
+
+        let name_cstr = CString::new("incremented").unwrap();
+        let param_types = [gobject_ffi::G_TYPE_INT, gobject_ffi::G_TYPE_INT];
+
+        let class_offset = {
+            let dummy: FooClass = mem::uninitialized();
+            ((&dummy.incremented as *const _ as usize) - (&dummy as *const _ as usize)) as u32
+        };
+
+        signals.push(gobject_ffi::g_signal_newv(
+            name_cstr.as_ptr(),
+            ex_foo_get_type(),
+            gobject_ffi::G_SIGNAL_RUN_LAST,
+            gobject_ffi::g_signal_type
+        ))
     }
 }
 

@@ -10,12 +10,10 @@ glib-sys="*"
 gobject-sys="*"
 gdk-sys="*"
 gtk-sys={version="*"}
-gdk = {version = "*",optional = true}
 gdk-pixbuf = "*"
-glib-sys="*"
-gobject-sys="*"
-gtk = {version = "*",  features=["v3_22"]}
+gtk={version="*",features=["v3_22"]}
 gio = "*"
+gio-sys = "*"
 pango = "*"
 gstreamer="*"
 gstreamer-audio = "*"
@@ -39,6 +37,7 @@ serde_json="*"
 serde_derive="*"
 chrono="*"
 percent-encoding = "1.0.1"
+hello-world-derive = {path = "hello-world-derive"}
 
 #[features]
 #tutorial5 = ["gtk", "gdk"]

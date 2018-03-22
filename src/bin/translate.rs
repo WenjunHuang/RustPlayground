@@ -278,6 +278,7 @@ fn print_translation_result() -> glib::Continue {
       }
     }
   });
+
   glib::Continue(false)
 }
 

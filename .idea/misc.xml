@@ -3,6 +3,8 @@
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CargoProjects">
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+    <cargoProject FILE="$PROJECT_DIR$/hello-world-derive/Cargo.toml" />
+    <cargoProject FILE="$PROJECT_DIR$/not-the-bees-derive/Cargo.toml" />
   </component>
   <component name="CidrRootsConfiguration">
     <excludeRoots>

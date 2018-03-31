@@ -37,7 +37,7 @@ serde_json="*"
 serde_derive="*"
 chrono="*"
 percent-encoding = "1.0.1"
-hello-world-derive = {path = "hello-world-derive"}
+#hello-world-derive = {path = "hello-world-derive"}
 
 #[features]
 #tutorial5 = ["gtk", "gdk"]

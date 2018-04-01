@@ -37,6 +37,9 @@ serde_json="*"
 serde_derive="*"
 chrono="*"
 percent-encoding = "1.0.1"
+relm = "*"
+relm-attributes="*"
+relm-derive = "*"
 #hello-world-derive = {path = "hello-world-derive"}
 
 #[features]

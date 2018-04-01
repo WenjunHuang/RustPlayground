@@ -1,0 +1,18 @@
+[package]
+name = "relm_http"
+version = "0.1.0"
+authors = ["WenjunHuang <huangwj@goldlokedu.cn>"]
+
+[dependencies]
+gdk = "*"
+gdk-pixbuf = "*"
+gio = "*"
+glib = "*"
+glib-sys="*"
+gtk = {version="*",feature=["v3_22"]}
+json = "*"
+simplelog = "*"
+uhttp_uri = "*"
+relm="*"
+relm-attributes="*"
+relm-derive="*"

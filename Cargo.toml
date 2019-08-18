@@ -1,5 +1,5 @@
 [package]
-name = "gtk_rs_playground"
+name = "rust_playground"
 version = "0.1.0"
 authors = ["WenjunHuang <huangwj@goldlokedu.cn>"]
 
